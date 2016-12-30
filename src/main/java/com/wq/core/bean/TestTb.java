@@ -1,6 +1,6 @@
 package com.wq.core.bean;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by 王萍 on 2016/12/29 0029.
@@ -9,7 +9,7 @@ public class TestTb {
 
     private Integer id;
     private String name;
-    private Timestamp birthday;
+    private Date birthday;
 
     public Integer getId() {
         return id;
@@ -27,11 +27,11 @@ public class TestTb {
         this.name = name;
     }
 
-    public Timestamp getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Timestamp birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 }

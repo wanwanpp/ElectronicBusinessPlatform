@@ -1,4 +1,4 @@
-package com.wq.core.service;
+package com.wq.core.service.test;
 
 import com.wq.core.bean.TestTb;
 

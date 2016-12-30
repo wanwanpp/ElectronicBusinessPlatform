@@ -17,7 +17,7 @@
 
     <!--jsp视图-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/front_page"/>
+        <property name="prefix" value="/WEB-INF/front_page/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 </beans>
