@@ -1,0 +1,14 @@
+/*实验八所需样式表文件 display.css   */
+/* 定义图层 */
+.divoutside{
+   border:#993300 8px solid; 
+   width:612px;
+   height:550px;
+   margin:0px;}
+.div1{
+   border:#990033 25px ridge; 
+   width:600px;
+   height:510px;
+   margin:20px;
+   background-image:url("img3.jpg");
+}

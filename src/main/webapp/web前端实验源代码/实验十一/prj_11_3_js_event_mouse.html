@@ -1,0 +1,38 @@
+<!--  鼠标事件处理程序prj_11_3_js_event_mouse.html -->
+<html>
+ <head>
+  <title> 鼠标事件处理程序 </title>
+  <style type="text/css">
+	form{text-align:center;}
+	div{background:#33ff99;width:400px;height:200px;margin:0 auto;}
+  </style>
+  <script type="text/javascript">
+   function mover() {
+	 var obj=document.getElementById("mybody");
+	 obj.style.background="#99cc66";}
+	 function mout() {
+	 var obj=document.getElementById("mybody");
+	 obj.style.background="#ff33ff";}
+     function mmove() {
+	 var obj=document.getElementById("mybody");
+	 obj.style.background="#0033ff";}
+	 function mdown() {
+	 form1.mtext.value="按下鼠标";}
+	 function mclick() {
+	 form1.mtext.value="单击鼠标";}
+     function mdclick() {
+	 form1.mtext.value="双击鼠标";
+	 }
+  </script>
+ </head>
+
+ <body  >
+ <div id="mybody" onmouseOver="mover()" onMouseOut="mout()" onMouseMove="mmove()" onclick="mclick();" onmousedown="mdown()"   ondblclick="mdclick();" >
+  <h3 align="center">鼠标事件处理</h3>
+  <hr color="red" size="3">
+  <form name="form1" method="post" action="">
+	<input type="text" name="" id="mtext">
+  </form>
+  </div>
+ </body>
+</html>

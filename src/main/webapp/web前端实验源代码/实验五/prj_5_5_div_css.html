@@ -1,0 +1,51 @@
+<!--DIV+CSS实验题 prj_5-5_div_css.html -->
+<html>
+	<head>
+		<title> DIV+CSS实验题 </title>
+		<style type="text/css">
+		#container{width:100%;margin:0 auto;padding:0 auto;}
+		#header{width:100%;height:70px;background:#99ff66;border-bottom:2px solid #ffffff;}
+		#nav{width:100%;height:28px;background:#99ff66;border-bottom:2px solid #ffffff;}
+		#mainbody{width:100%;height:300px;margin:0 auto;padding:0 auto;border-bottom:2px solid #ffffff;}
+		#left{float:left;background:#99ff33;width:25%;height:300px;border-right:2px solid #ffffff;}
+		/*方法1：left、right分别向左和向右浮动，中间用margin设置*/
+		#middle{margin:0 25% 0;background:#ccff66;width:49.7%;height:300px;}
+		/*方法2：div的位置放在左右侧边的下边#middle{background:#ccff66;width:74.5%;height:300px;}*/
+		/*方法3：left、middle向左浮动，right向右浮动,width的百分比值可能有差异*/
+		/*#middle{float:left;background:#ccff66;width:49.5%;height:300px;}*/
+		#right{float:right;background:#99ff00;width:25%;height:300px;}
+		#marquee{width:100%;height:26px;background:#99ff66;border-bottom:2px solid #ffffff;}
+		#footer{width:100%;height:50px;background:#99ff00;}
+		#clearfloat{clear:both;border-bottom:2px solid #ffff00;}
+		</style>
+	</head>
+	<body>
+		<div id="container" class="">
+			<div id="header" class="">
+			头部
+			</div>
+			<div id="nav" class="">
+			导航
+			</div>
+			<div id="mainbody" class="">
+				<div id="left" class="">
+				左边
+				</div>
+				<div id="right" class="">
+				右边
+				</div>
+				<div id="middle" class="">
+				中间
+				</div>
+			</div>
+			<div id="clearfloat" class="">
+			</div>
+			<div id="marquee" class="">
+				滚动
+			</div>
+			<div id="footer" class="">
+				版权部分
+			</div>
+		</div>
+	</body>
+</html>

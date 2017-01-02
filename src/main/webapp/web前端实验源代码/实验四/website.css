@@ -1,0 +1,20 @@
+/*website.css*/
+.container{
+   background:#FF99CC;
+  }
+.header{ 
+   background:#FF99CC;
+   width:100%;
+   height:150px;}
+.pagebody{ }
+.sidebar{ 
+background:#66ffee;
+width:30%;
+   height:550px;}
+.mainbody{
+background:#dd22ff;
+width:65%;
+   height:550px;}
+.footer{ background:#78345f;
+width:100%;
+   height:100px;}

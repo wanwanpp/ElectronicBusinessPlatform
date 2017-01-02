@@ -1,0 +1,104 @@
+<!-- 表单提交验证prj_11_2_js_event_form.html -->
+<html>
+ <head>
+  <title> 表单提交验证 </title>
+  <script type="text/javascript" src="formcheck.js"></script>
+  <script type="text/javascript">
+     //设置不同的错误信息
+     function setErrorInfomation(idname,information){
+	     var obj=document.getElementById(idname);
+		 obj.innerHTML="";
+         obj.innerHTML=information;
+	 }
+     function validform(){
+	    //通过对象的名称访问对象的元素，也可用document.getElementsByName("objectnmae")
+	    var username=myform.username;
+		var pwd=myform.password;
+		var pwd1=myform.confirmpassword;
+		var email=myform.mail;
+		//验证用户名是否输入
+		if (!validate_value(username))   //取反
+		{ 
+		    alert("请注意\n用户名不能为空！");
+            setErrorInfomation("err_username","用户名不能为空！");
+			return false;
+		}
+		//验证用户名首字符不能为数字
+		if (!validate_character(username.value.charAt(0)))
+		{
+		    alert("请注意\n用户名首字符不能为数字！");
+            setErrorInfomation("err_username","用户名首字符不能为数字！");
+			return false; 
+		}
+		//验证用户名的长度
+		if (!validate_string_length(username.value,6,20))
+		{
+		    alert("请注意\n用户名长度不能小于6或大于20！");
+            setErrorInfomation("err_username","用户名长度不能小于6或大于20！");
+			return false; 
+		}
+		//验证电子邮件地址
+		if (!validate_email(email.value))
+		{
+		    alert("请注意:\n电子邮件地址不正确，重输入！");
+            setErrorInfomation("err_email","电子邮件地址不正确，重输入！");
+			return false; 
+		}
+		//其它功能请自行补充
+	 }
+  </script>
+   <style type="text/css">
+		div{margin:0 auto;
+		background:#00ff99 url("bgimags.jpg");
+		padding:30px 40px 30px;}
+		table{
+		border:2px #0000cc double;
+		text-align:center;
+		margin:0 auto;
+		}
+		#td1{text-align:right;
+		font-size:20px;
+		color:#6600ff;}
+		#td2{text-align:left;}
+		label{color:red;font-weight:bold;}
+     </style>
+ </head>
+ <body>
+    <div id="" class="">
+       <form name="myform" method="post" action="begin.html" onsubmit="return validform();">
+          <table>
+		  <caption>表单验证</caption>
+          <tr>
+			<td>&nbsp;</td>
+			<td id="td1">用&nbsp;户&nbsp;名：</td>
+			<td id="td2"><input type="text" name="username" ></td>
+			<td><label id="err_username"></label></td>
+		</tr>
+          <tr>
+			<td>&nbsp;&nbsp;</td>
+			<td id="td1">密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+			<td id="td2"><input type="password" name="password" ></td>
+			<td><label id="err_password"></label></td>
+          </tr>
+          <tr>
+			<td>&nbsp;&nbsp;</td>
+			<td id="td1">确认密码：</td>
+			<td id="td2"><input type="password" name="confirmpassword" ></td>
+			<td><label id="err_password_1"></label></td>
+          </tr>
+          <tr>
+			<td>&nbsp;&nbsp;</td>
+			<td id="td1">电子邮件：</td>
+			<td id="td2"><input type="text" name="mail" ></td>
+			<td><label id="err_email"></label></td>
+          </tr>
+          <tr>
+			<td colspan="4">
+			<input type="submit"value="提交">
+			<input type="reset" value="重置"></td>
+		  </tr>
+          </table>
+		</form>
+    </div>
+ </body>
+</html>

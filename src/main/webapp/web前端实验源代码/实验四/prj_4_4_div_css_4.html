@@ -1,0 +1,46 @@
+<!-- CSS四种样式应用prj_4-4_div_css_4.html -->
+<html>
+	<head>
+		<title> CSS四种样式应用</title>
+		<!-- 以下是内部样式表 -->
+		<style type="text/css">
+			/*-- 以下是导入样式表，必须放在样式表的最1行 */
+			@import url("layout_import.css");
+			body{
+				background:#66ffff;font-size:18px;}
+			.div1{                  /*类选择符*/
+				width:100%;
+				height:100px;
+				background:#99cc33;}
+			.p1{
+				color:blue;font-size:32px;
+			}
+		</style>
+		<!-- 以下是外部样式表 -->
+		<link type="text/css" rel="stylesheet" href="layout_link.css"/>
+	</head>
+	<body>
+		<!--以下是应用行内样式表/内联样式表  -->
+		<div style="background:#ffff33 double 1px;witdh:100%;height:100px;">
+			<h1>这是内嵌样式表应用</h1>
+		</div>
+		<!-- 以下是应用内部样式表 -->
+		<div id="" class="div1">
+			<h1>这是内部样式表应用</h1>
+			<p class="p1">这是内部样式表p1</p>
+		</div>
+		<!-- 以下是应用导入样式表 -->
+		<div id="" class="div3">
+			<p class="p3">这是导入样式表应用</p>
+		</div>
+		<!-- 以下是应用外部样式表 -->
+		<div id="div4" class="">
+			<div id="div4_2" class="">
+				<img src="bgimags2.jpg" alt="花">
+			</div>
+			<div id="div4_1" class="">
+				<p>赞美鲜花<br>　爱美之心人皆有之，尤其花卉是多数人的钟爱。从文人墨客到普通百姓，不喜欢花卉的人少之又少。自古至今咏梅、赏菊、诵荷的诗词书画不胜枚举，其名家的作品更是家喻户晓耳详能熟。唯独鲜花，这种以产业化方式进入人们生活的花卉，却少有人赞之。 </p>
+			</div>
+		</div>
+	</body>
+</html>

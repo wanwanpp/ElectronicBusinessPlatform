@@ -1,0 +1,133 @@
+<!-- 表单验证 prj_11_1_js_event_form.html -->
+<html>
+ <head>
+  <title> 表单验证 </title>
+     <style type="text/css">
+		div{margin:0 auto;
+		background:#00ff99 url("bgimags.jpg");
+		padding:30px 40px 30px;}
+		table{
+		border:2px #0000cc double;
+		text-align:center;
+		margin:0 auto;
+		}
+		#td1{text-align:right;
+		font-size:20px;
+		color:#6600ff;}
+		#td2{text-align:left;}
+		label{color:red;font-weight:bold;}
+     </style>
+	 <script type="text/javascript">
+	     //检查用户名的有效性、必填项验证
+	  
+	  function checkusername(){
+	     var name1=myform.username.value;  //全局变量
+		 var obj=document.getElementById("err_username");
+		 obj.innerHTML="";
+		 if (name1=="" || name1==null )   //为空或不输入时
+		 { obj.innerHTML="用户名不能为空！";
+		 alert("用户名不能空！");}
+		 else    //有内容时
+		 {  var firstchar=name1.charAt(0);
+		    if (firstchar>="0" && firstchar<="9")  //首字符不能为数字
+		    {
+			   obj.innerHTML="用户名必须以字母开关头！";
+		    }else {
+             if (name1.length<6 || name1.length>20) //
+             {
+			 obj.innerHTML="用户名长度大于等于6且小于等于20！";
+             }
+			}
+		 }
+		 }
+         /*密码有效性检查*/
+         function checkpassword(){
+		 //不能为空
+		   var name1=myform.username.value;
+		   var pwd=myform.password.value;   //存放密码值
+		   var obj=document.getElementById("err_password");//取标签的内容
+		   obj.innerHTML="";
+		   if (pwd=="" || pwd==null)    //密码为空
+		   {
+		     obj.innerHTML="密码不能为空！";  //直接在输入框右边显示错误信息
+		     alert("密码不能为空！");//用告警信息框输入消息
+		   }
+		   else
+		   {
+		     if (pwd.length<6 || pwd.length>20)   //检查密码长度
+		     {
+			   obj.innerHTML="密码长度不能小于6或大于20！";
+		     }
+			 else    //检查密码是否与用户名相同
+			 { if (pwd==name1)
+			   {
+			   obj.innerHTML="密码不能与用户名相同！";
+			   }
+			 }
+		   }
+		 }
+		 /*检查确认密码有效性*/
+         function checkpassword_1(){
+		   var pwd1=myform.confirmpassword.value;
+		   var pwd=myform.password.value;   //存放密码值
+		   var obj=document.getElementById("err_password_1");//取标签的内容
+		   obj.innerHTML="";
+		   if (pwd1!=pwd)
+		   {
+		      obj.innerHTML="密码与确认密码不相同！";
+		   }
+		 }
+		 /*检查邮件地址的有效性*/
+		 function checkemail(){
+		    var mail=myform.mail.value;
+			var apos=mail.indexOf("@");
+			var dotpos=mail.lastIndexOf(".")
+            var obj=document.getElementById("err_email");//取标签的内容
+            obj.innerHTML="";
+			if (dotpos-apos<2)
+			{
+               obj.innerHTML="邮件地址格式错误！";
+			}
+		 }
+	 </script>
+ </head>
+
+ <body>
+    <div id="" class="">
+       <form name="myform" method="post" action="" onsubmit="">
+          <table>
+		  <caption>表单验证</caption>
+          <tr>
+			<td>&nbsp;</td>
+			<td id="td1">用&nbsp;户&nbsp;名：</td>
+			<td id="td2"><input type="text" name="username" onblur="checkusername();"></td>
+			<td><label id="err_username"></label></td>
+		</tr>
+          <tr>
+			<td>&nbsp;&nbsp;</td>
+			<td id="td1">密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+			<td id="td2"><input type="password" name="password" onblur="checkpassword();"></td>
+			<td><label id="err_password"></label></td>
+          </tr>
+          <tr>
+			<td>&nbsp;&nbsp;</td>
+			<td id="td1">确认密码：</td>
+			<td id="td2"><input type="password" name="confirmpassword" onblur="checkpassword_1();"></td>
+			<td><label id="err_password_1"></label></td>
+          </tr>
+          <tr>
+			<td>&nbsp;&nbsp;</td>
+			<td id="td1">电子邮件：</td>
+			<td id="td2"><input type="text" name="mail" onblur="checkemail();"></td>
+			<td><label id="err_email"></label></td>
+          </tr>
+          <tr>
+			<td colspan="4">
+			<input type="submit"value="提交">
+			<input type="reset" value="重置"></td>
+		  </tr>
+          </table>
+		</form>
+    </div>
+ </body>
+</html>

@@ -1,0 +1,9 @@
+<div id="container" class="">Í¼²ãÍâÈİÆ÷
+	<div id="header" class="">    </div>
+	<div id="nav" class="">      </div>
+	<div id="mainbody" class="">mainbodyÍ¼²ãÄÚÈİÆ÷     
+		<div id="main" class="">     </div>
+		<div id="rightbar" class=""> </div> 
+	</div>
+	<div id="footer" class="">	</div>
+</div>

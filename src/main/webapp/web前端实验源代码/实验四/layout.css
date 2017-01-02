@@ -1,0 +1,47 @@
+/* layout.css 20120330*/
+img{border:0px;}
+a{ color:#05a; text-decoration:none;}
+a:hover { color:#f00;}
+/*body*/
+body{ 
+	margin:0 auto; 
+	font-size:34px; 
+	font-family:Verdana; 
+	line-height:1.5;}
+#container {
+	width:900px; 
+	margin:0 auto;}
+/*header*/
+#header{
+	height:70px;
+	background:#CCFFCC; 
+	margin-bottom:8px;}
+#nav {
+	height:30px; 
+	background:#CCFFCC; 
+	margin-bottom:8px;}
+/*main*/
+#maincontent { 
+margin-bottom:8px;
+}
+
+#main {
+	float:left;
+	width:664px;
+	height:500px; 
+	background:#FFFF99;}
+#side{ 
+	float:right; 
+	width:228px; 
+	height:500px; 
+background:#FFCC99;}
+/*footer*/
+#footer{ 
+	height:70px; 
+	background:#CCFFCC;}
+.clearfloat {
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
