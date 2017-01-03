@@ -1,5 +1,6 @@
 package com.wq.core.bean.product;
 
+import com.wq.core.web.Constants;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,4 +23,10 @@ public class Brand implements Serializable {
     private String webSite;
     private Integer sort;
     private Integer isDisplay;
+
+//    此处的allUrl需要注意
+    public String getAllUrl(){
+        return Constants.IMAGE_URL + imgUrl;
+    }
+
 }

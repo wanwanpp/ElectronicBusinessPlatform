@@ -3,6 +3,7 @@ package com.wq.core.controller;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.wq.common.util.ResponseUtils;
+import com.wq.core.web.Constants;
 import org.apache.commons.io.FilenameUtils;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -42,7 +43,7 @@ public class UploadController {
 
 //        相对路径
         String path = "upload/" + picName + "." + extension;
-        String url = "http://localhost:8088/image-web/" + path;
+        String url = Constants.IMAGE_URL + path;
 
 //        使用jersey客户端
         Client client = new Client();

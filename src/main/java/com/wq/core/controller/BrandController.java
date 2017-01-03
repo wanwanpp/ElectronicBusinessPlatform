@@ -36,4 +36,34 @@ public class BrandController {
         return "brand/add";
     }
 
+    @RequestMapping("/add.do")
+    public String add(Brand brand){
+        brandService.addBrand(brand);
+        return "redirect:/brand/list.do";
+    }
+
+    @RequestMapping("/delete.do")
+    public String delete(Integer id){
+        brandService.deleteBrandById(id);
+        return "redirect:/brand/list.do";
+    }
+
+    @RequestMapping("/batchDelete.do")
+    public String batchDelete(Integer[] ids){
+        brandService.deleteBrandByIds(ids);
+        return "redirect:/brand/list.do";
+    }
+
+    @RequestMapping("/toEdit.do")
+    public String toEdit(Integer id,ModelMap modelMap){
+        modelMap.addAttribute("brand",brandService.getBrandById(id));
+        return "brand/edit";
+    }
+
+    @RequestMapping("/edit.do")
+    public String edit(Brand brand){
+        brandService.updateBrand(brand);
+        return "redirect:/brand/list.do";
+    }
+
 }

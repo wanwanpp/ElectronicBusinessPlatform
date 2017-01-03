@@ -24,4 +24,24 @@ public class BrandServiceImpl implements BrandService {
     public List<Brand> getBrandList(Brand brand) {
         return brandDao.getBrandList(brand);
     }
+
+    public Integer addBrand(Brand brand) {
+        return brandDao.addBrand(brand);
+    }
+
+    public void deleteBrandById(Integer id) {
+         brandDao.deleteBrandById(id);
+    }
+
+    public void deleteBrandByIds(Integer[] ids) {
+        brandDao.deleteBrandByIds(ids);
+    }
+
+    public Brand getBrandById(Integer id) {
+        return brandDao.getBrandById(id);
+    }
+
+    public void updateBrand(Brand brand) {
+        brandDao.updateBrand(brand);
+    }
 }

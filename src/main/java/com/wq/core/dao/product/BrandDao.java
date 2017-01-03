@@ -10,4 +10,14 @@ import java.util.List;
 public interface BrandDao {
 
     public List<Brand> getBrandList(Brand brand);
+
+    public Integer addBrand(Brand brand);
+
+    public void deleteBrandById(Integer id);
+
+    public void deleteBrandByIds(Integer[] ids);
+
+    public Brand getBrandById(Integer id);
+
+    public void updateBrand(Brand brand);
 }
