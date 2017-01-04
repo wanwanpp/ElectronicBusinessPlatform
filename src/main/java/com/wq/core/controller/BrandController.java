@@ -1,7 +1,9 @@
 package com.wq.core.controller;
 
 import com.wq.core.bean.product.Brand;
+import com.wq.core.query.product.BrandQuery;
 import com.wq.core.service.product.BrandService;
+import com.wq.core.web.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,9 +25,9 @@ public class BrandController {
 
     @RequestMapping("/list.do")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model){
-        Brand brand = new Brand();
-        brand.setIsDisplay(1);
-        List<Brand> brands = brandService.getBrandList(brand);
+        BrandQuery brandQuery = new BrandQuery();
+        brandQuery.setIsDisplay(Constants.YES);
+        List<Brand> brands = brandService.getBrandList(brandQuery);
         model.addAttribute("brands",brands);
 
         return "brand/list";

@@ -12,9 +12,56 @@
         <result property="isDisplay" column="is_display"/>
     </resultMap>
 
-    <select id="getBrandList" parameterType="Brand" resultMap="brand">
-        SELECT id,name,description,img_url,web_site,sort,is_display FROM bbs_brand
-        WHERE is_display = #{isDisplay}
+    <!--<sql id="brandSelector">-->
+    <!--SELECT-->
+    <!--id,-->
+    <!--name,-->
+    <!--description,-->
+    <!--img_url,-->
+    <!--web_site,-->
+    <!--sort,-->
+    <!--is_display-->
+    <!--FROM bbs_brand-->
+    <!--</sql>-->
+
+    <sql id="brandSelector">
+        SELECT
+        <if test="fields!=null">
+            ${fields}
+        </if>
+        <if test="fields==null">
+            id, name,description, img_url, web_site, sort, is_display
+        </if>
+        FROM bbs_brand
+    </sql>
+
+    <sql id="brandListWhere">
+        <where>
+            <if test="name!=null">name=#{name}</if>
+            <if test="isDisplay!=null">is_display=#{isDisplay}</if>
+        </where>
+    </sql>
+
+    <sql id="brandListOrder">
+        <if test="orderFields!=null and orderFields.size>0">
+            order by
+            <foreach collection="orderFields" separator="," item="orderField">
+                ${orderField.fieldName} ${orderField.order}
+            </foreach>
+        </if>
+    </sql>
+
+    <sql id="brandListLimit">
+        <if test="startRow!=null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </sql>
+
+    <select id="getBrandList" parameterType="BrandQuery" resultMap="brand">
+        <include refid="brandSelector"/>
+        <include refid="brandListWhere"/>
+        <include refid="brandListOrder"/>
+        # order by id DESC
     </select>
 
     <insert id="addBrand" parameterType="Brand">
@@ -73,5 +120,6 @@
             id=#{id}
         </where>
     </update>
+
 
 </mapper>

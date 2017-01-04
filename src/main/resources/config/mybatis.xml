@@ -18,7 +18,7 @@
 		<property name="mapperLocations" value="classpath:com/wq/core/dao/*.xml"/>
 
 		<!--别名-->
-		<property name="typeAliasesPackage" value="com.wq.core.bean"/>
+		<property name="typeAliasesPackage" value="com.wq.core.bean,com.wq.core.query"/>
 		<!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
 	</bean>
 

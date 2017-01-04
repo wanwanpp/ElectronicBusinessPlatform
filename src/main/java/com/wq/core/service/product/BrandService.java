@@ -1,6 +1,7 @@
 package com.wq.core.service.product;
 
 import com.wq.core.bean.product.Brand;
+import com.wq.core.query.product.BrandQuery;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public interface BrandService {
 
-    public List<Brand> getBrandList(Brand brand);
+    public List<Brand> getBrandList(BrandQuery brandQuery);
 
     public Integer addBrand(Brand brand);
 
