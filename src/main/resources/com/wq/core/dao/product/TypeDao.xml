@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wq.core.dao.product.TypeDao">
+
+
+    <resultMap id="type" type="Type">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="note" column="note"/>
+        <result property="isDisplay" column="is_display"/>
+    </resultMap>
+
+    <sql id="typeListWhere">
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="parentId!=null">
+                and parent_id=#{parentId}
+            </if>
+            <if test="note!=null">
+                and note=#{note}
+            </if>
+            <if test="isDisplay!=null">
+                and is_display=#{isDisplay}
+            </if>
+        </where>
+    </sql>
+    <sql id="typeSelector">
+        SELECT
+        <if test="fields!=null">${fields}</if>
+        <if test="fields==null">
+            id,name,parent_id,note,is_display
+        </if>
+        FROM bbs_type
+    </sql>
+    <sql id="typeListOrder">
+        <if test="orderFields!=null and orderFields.size>0">
+            order by
+            <foreach collection="orderFields" separator="," item="orderField">
+                ${orderField.fieldName} ${orderField.order}
+            </foreach>
+        </if>
+    </sql>
+    <sql id="typeListLimit">
+        <if test="startRow !=null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </sql>
+
+
+
+
+    <select id="getTypeList" resultMap="type" parameterType="TypeQuery">
+        <include refid="typeSelector"/>
+        <include refid="typeListWhere"/>
+    </select>
+
+</mapper>

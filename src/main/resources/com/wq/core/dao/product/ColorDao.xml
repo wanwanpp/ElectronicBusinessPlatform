@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wq.core.dao.product.ColorDao">
+
+
+    <resultMap id="color" type="Color">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="imgUrl" column="img_url"/>
+    </resultMap>
+
+    <sql id="colorListWhere">
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="parentId!=null">
+                and parent_id=#{parentId}
+            </if>
+            <if test="imgUrl!=null">
+                and img_url=#{imgUrl}
+            </if>
+
+        </where>
+    </sql>
+    <sql id="colorSelector">
+        SELECT
+        <if test="fields!=null">${fields}</if>
+        <if test="fields==null">
+            id,name,parent_id,img_url
+        </if>
+        FROM bbs_color
+    </sql>
+    <sql id="colorListOrder">
+        <if test="orderFields!=null and orderFields.size>0">
+            order by
+            <foreach collection="orderFields" separator="," item="orderField">
+                ${orderField.fieldName} ${orderField.order}
+            </foreach>
+        </if>
+    </sql>
+    <sql id="colorListLimit">
+        <if test="startRow !=null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </sql>
+
+
+
+
+    <select id="getColorList" resultMap="color" parameterType="ColorQuery">
+        <include refid="colorSelector"/>
+        <include refid="colorListWhere"/>
+    </select>
+
+</mapper>

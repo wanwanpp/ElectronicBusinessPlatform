@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wq.core.dao.product.ProductDao">
+
+
+    <resultMap id="product" type="Product">
+        <result property="id" column="id"/>
+        <result property="no" column="no"/>
+        <result property="name" column="name"/>
+        <result property="weight" column="weight"/>
+        <result property="isNew" column="is_new"/>
+        <result property="isHot" column="is_hot"/>
+        <result property="isCommend" column="is_commend"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createUserId" column="create_user_id"/>
+        <result property="checkTime" column="check_time"/>
+        <result property="checkUserId" column="check_user_id"/>
+        <result property="isShow" column="is_show"/>
+        <result property="isDel" column="is_del"/>
+        <result property="typeId" column="type_id"/>
+        <result property="brandId" column="brand_id"/>
+        <result property="keywords" column="keywords"/>
+        <result property="sales" column="sales"/>
+        <result property="description" column="description"/>
+        <result property="packageList" column="package_list"/>
+        <result property="feature" column="feature"/>
+        <result property="color" column="color"/>
+        <result property="size" column="size"/>
+    </resultMap>
+
+    <sql id="productListWhere">
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="no!=null">
+                <if test="noLike==false">
+                    and no=#{no}
+                </if>
+                <if test="noLike==true">
+                    and no like "%"#{no}"%"
+                </if>
+            </if>
+            <if test="name!=null">
+                <if test="nameLike==false">
+                    and name=#{name}
+                </if>
+                <if test="nameLike==true">
+                    and name like "%"#{name}"%"
+                </if>
+            </if>
+            <if test="weight!=null">
+                and weight=#{weight}
+            </if>
+            <if test="isNew!=null">
+                and is_new=#{isNew}
+            </if>
+            <if test="isHot!=null">
+                and is_hot=#{isHot}
+            </if>
+            <if test="isCommend!=null">
+                and is_commend=#{isCommend}
+            </if>
+            <if test="createTime!=null">
+                and create_time=#{createTime}
+            </if>
+            <if test="createUserId!=null">
+                <if test="createUserIdLike==false">
+                    and create_user_id=#{createUserId}
+                </if>
+                <if test="createUserIdLike==true">
+                    and create_user_id like "%"#{createUserId}"%"
+                </if>
+            </if>
+            <if test="checkTime!=null">
+                and check_time=#{checkTime}
+            </if>
+            <if test="checkUserId!=null">
+                <if test="checkUserIdLike==false">
+                    and check_user_id=#{checkUserId}
+                </if>
+                <if test="checkUserIdLike==true">
+                    and check_user_id like "%"#{checkUserId}"%"
+                </if>
+            </if>
+            <if test="isShow!=null">
+                and is_show=#{isShow}
+            </if>
+            <if test="isDel!=null">
+                and is_del=#{isDel}
+            </if>
+            <if test="typeId!=null">
+                and type_id=#{typeId}
+            </if>
+            <if test="brandId!=null">
+                and brand_id=#{brandId}
+            </if>
+            <if test="keywords!=null">
+                <if test="keywordsLike==false">
+                    and keywords=#{keywords}
+                </if>
+                <if test="keywordsLike==true">
+                    and keywords like "%"#{keywords}"#"
+                </if>
+            </if>
+            <if test="sales!=null">
+                and sales=#{sales}
+            </if>
+            <if test="description != null">
+                <if test="descriptionLike == false">
+                    and description=#{description}
+                </if>
+                <if test="descriptionLike == true">
+                    and description like "%"#{description}"%"
+                </if>
+            </if>
+            <if test="packageList != null">
+                <if test="packageListLike == false">
+                    and package_list=#{packageList}
+                </if>
+                <if test="packageListLike == true">
+                    and package_list like "%"#{packageList}"%"
+                </if>
+            </if>
+            <if test="feature != null">
+                <if test="featureLike == false">
+                    and feature=#{feature}
+                </if>
+                <if test="featureLike == true">
+                    and feature like "%"#{feature}"%"
+                </if>
+            </if>
+            <if test="color != null">
+                <if test="colorLike == false">
+                    and color=#{color}
+                </if>
+                <if test="colorLike == true">
+                    and color like "%"#{color}"%"
+                </if>
+            </if>
+            <if test="size != null">
+                <if test="sizeLike == false">
+                    and size=#{size}
+                </if>
+                <if test="sizeLike == true">
+                    and size like "%"#{size}"%"
+                </if>
+            </if>
+        </where>
+    </sql>
+    <sql id="productSelector">
+        SELECT
+        <if test="fields!=null">${fields}</if>
+        <if test="fields==null">
+            id,no,name,weight,is_new,is_hot,is_commend,create_time,create_user_id,check_time,check_user_id,is_show,is_del,type_id,brand_id,keywords,sales,description,package_list,feature,color,size
+        </if>
+        FROM bbs_product
+    </sql>
+    <sql id="productListOrder">
+        <if test="orderFields!=null and orderFields.size>0">
+            order by
+            <foreach collection="orderFields" separator="," item="orderField">
+                ${orderField.fieldName} ${orderField.order}
+            </foreach>
+        </if>
+    </sql>
+    <sql id="productListLimit">
+        <if test="startRow !=null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </sql>
+
+
+    <select id="getProductListCount" resultType="int" parameterType="ProductQuery">
+        SELECT count(1)
+        FROM bbs_product
+        <include refid="productListWhere"/>
+    </select>
+
+    <select id="getProductListWithPage" parameterType="ProductQuery" resultMap="product">
+        <include refid="productSelector"/>
+        <include refid="productListWhere"/>
+        <include refid="productListOrder"/>
+        <include refid="productListLimit"/>
+    </select>
+
+</mapper>

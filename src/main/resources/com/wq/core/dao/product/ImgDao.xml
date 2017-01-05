@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wq.core.dao.product.ImgDao">
+
+
+    <resultMap id="img" type="Img">
+        <result property="id" column="id"/>
+        <result property="productId" column="product_id"/>
+        <result property="url" column="url"/>
+        <result property="isDef" column="is_def"/>
+    </resultMap>
+
+    <sql id="imgListWhere">
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="productId!=null">
+                and product_id=#{productId}
+            </if>
+            <if test="url!=null">
+                <if test="urlLike==false">
+                    and url=#{url}
+                </if>
+                <if test="urlLike==true">
+                    and url like "%"#{url}"%"
+                </if>
+            </if>
+
+            <if test="isDef!=null">
+                and is_def=#{isDef}
+            </if>
+        </where>
+    </sql>
+    <sql id="imgSelector">
+        SELECT
+        <if test="fields!=null">${fields}</if>
+        <if test="fields==null">
+            id,product_id,url,is_def
+        </if>
+        FROM bbs_img
+    </sql>
+    <sql id="imgListOrder">
+        <if test="orderFields!=null and orderFields.size>0">
+            order by
+            <foreach collection="orderFields" separator="," item="orderField">
+                ${orderField.fieldName} ${orderField.order}
+            </foreach>
+        </if>
+    </sql>
+    <sql id="imgListLimit">
+        <if test="startRow !=null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </sql>
+
+
+
+
+    <select id="getImgList" resultMap="img" parameterType="ImgQuery">
+        <include refid="imgSelector"/>
+        <include refid="imgListWhere"/>
+    </select>
+
+</mapper>
