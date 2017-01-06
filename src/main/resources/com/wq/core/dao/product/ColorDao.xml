@@ -57,4 +57,19 @@
         <include refid="colorListWhere"/>
     </select>
 
+    <select id="getColorById" parameterType="Integer" resultMap="color">
+        SELECT id,name,parent_id,img_url FROM bbs_color
+        <where>id=#{id}</where>
+    </select>
+
+    <select id="getColorByIds" parameterType="ArrayList" resultMap="color">
+        SELECT id,name,parent_id,img_url FROM bbs_color
+        <where>
+            id in
+            <foreach collection="list" separator="," item="id" open="(" close=")">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+
 </mapper>

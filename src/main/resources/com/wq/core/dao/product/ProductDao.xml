@@ -170,6 +170,33 @@
         </if>
     </sql>
 
+    <select id="getProductById" parameterType="Integer" resultMap="product">
+        SELECT
+            id,
+            no,
+            name,
+            weight,
+            is_new,
+            is_hot,
+            is_commend,
+            create_time,
+            create_user_id,
+            check_time,
+            check_user_id,
+            is_show,
+            is_del,
+            type_id,
+            brand_id,
+            keywords,
+            sales,
+            description,
+            package_list,
+            feature,
+            color,
+            size
+        FROM bbs_product
+        WHERE id = #{id}
+    </select>
 
     <select id="getProductListCount" resultType="int" parameterType="ProductQuery">
         SELECT count(1)
@@ -184,4 +211,183 @@
         <include refid="productListLimit"/>
     </select>
 
+    <insert id="addProduct" parameterType="Product" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO bbs_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="no != null">
+                no,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="weight != null">
+                weight,
+            </if>
+            <if test="isNew != null">
+                is_new,
+            </if>
+            <if test="isHot != null">
+                is_hot,
+            </if>
+            <if test="isCommend != null">
+                is_commend,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUserId != null">
+                create_user_id,
+            </if>
+            <if test="checkTime != null">
+                check_time,
+            </if>
+            <if test="checkUserId != null">
+                check_user_id,
+            </if>
+            <if test="isShow != null">
+                is_show,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+            <if test="typeId != null">
+                type_id,
+            </if>
+            <if test="brandId != null">
+                brand_id,
+            </if>
+            <if test="keywords != null">
+                keywords,
+            </if>
+            <if test="sales != null">
+                sales,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="packageList != null">
+                package_list,
+            </if>
+            <if test="feature != null">
+                feature,
+            </if>
+            <if test="color != null">
+                color,
+            </if>
+            <if test="size != null">
+                size
+            </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="no != null">
+                #{no},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="weight != null">
+                #{weight},
+            </if>
+            <if test="isNew != null">
+                #{isNew},
+            </if>
+            <if test="isHot != null">
+                #{isHot},
+            </if>
+            <if test="isCommend != null">
+                #{isCommend},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createUserId != null">
+                #{createUserId},
+            </if>
+            <if test="checkTime != null">
+                #{checkTime},
+            </if>
+            <if test="checkUserId != null">
+                #{checkUserId},
+            </if>
+            <if test="isShow != null">
+                #{isShow},
+            </if>
+            <if test="isDel != null">
+                #{isDel},
+            </if>
+            <if test="typeId != null">
+                #{typeId},
+            </if>
+            <if test="brandId != null">
+                #{brandId},
+            </if>
+            <if test="keywords != null">
+                #{keywords},
+            </if>
+            <if test="sales != null">
+                #{sales},
+            </if>
+            <if test="description != null">
+                #{description},
+            </if>
+            <if test="packageList != null">
+                #{packageList},
+            </if>
+            <if test="feature != null">
+                #{feature},
+            </if>
+            <if test="color != null">
+                #{color},
+            </if>
+            <if test="size != null">
+                #{size}
+            </if>
+        </trim>
+    </insert>
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

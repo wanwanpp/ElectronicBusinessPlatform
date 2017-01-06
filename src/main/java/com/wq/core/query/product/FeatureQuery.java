@@ -20,7 +20,7 @@ public class FeatureQuery extends BaseQuery {
     private String name;
     private String value;
     private Integer sort;
-    private Integer idDel;
+    private Integer isDel;
 
     private List<OrderField> orderFields = new ArrayList<OrderField>();
 }

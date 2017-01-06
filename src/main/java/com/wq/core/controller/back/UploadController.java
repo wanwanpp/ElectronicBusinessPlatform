@@ -1,4 +1,4 @@
-package com.wq.core.controller;
+package com.wq.core.controller.back;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;

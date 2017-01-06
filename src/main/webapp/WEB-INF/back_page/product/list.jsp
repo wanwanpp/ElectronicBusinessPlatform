@@ -90,10 +90,13 @@
                         <c:if test="${entry.isShow==0}">下架</c:if>
                     </td>
                     <td align="center">
-                        <a href="#" class="pn-opt">查看</a> | <a href="#" class="pn-opt">修改</a> |
+                        <a href="/product/display/detail.shtml?id=${entry.id}" target="_blank" class="pn-opt">查看</a>
+                        |
+                        <a href="#" class="pn-opt">修改</a>
+                        |
                         <a href="#" onclick="if(!confirm('您确定删除吗？')) {return false;}" class="pn-opt">删除</a>
                         |
-                        <a href="/sku/list.do" class="pn-opt">库存</a>
+                        <a href="/sku/list.do?no=${entry.no}&id=${entry.id}" class="pn-opt">库存</a>
                     </td>
                 </tr>
             </c:forEach>

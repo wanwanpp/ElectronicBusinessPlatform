@@ -11,4 +11,9 @@ import java.util.List;
 public interface ColorService {
 
     public List<Color> getColorList(ColorQuery colorQuery);
+
+    public Color getColorById(Integer id);
+
+    public List<Color> getColorByIds(List<Integer> ids);
+
 }

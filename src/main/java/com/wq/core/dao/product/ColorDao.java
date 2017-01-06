@@ -11,4 +11,10 @@ import java.util.List;
 public interface ColorDao {
 
     public List<Color> getColorList(ColorQuery colorQuery);
+
+    public Color getColorById(Integer id);
+
+    public List<Color> getColorByIds(List<Integer> ids);
+
+
 }

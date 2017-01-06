@@ -55,11 +55,58 @@
     </sql>
 
 
-
-
     <select id="getImgList" resultMap="img" parameterType="ImgQuery">
         <include refid="imgSelector"/>
         <include refid="imgListWhere"/>
     </select>
 
+    <insert id="addImg" parameterType="Img" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO bbs_img
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+                id,
+            </if>
+            <if test="productId !=null ">
+                product_id,
+            </if>
+            <if test="url!=null">
+                url,
+            </if>
+            <if test="isDef!=null">
+                is_def
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">
+                #{id},
+            </if>
+            <if test="productId !=null ">
+                #{productId},
+            </if>
+            <if test="url!=null">
+                #{url},
+            </if>
+            <if test="isDef!=null">
+                #{isDef}
+            </if>
+        </trim>
+    </insert>
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

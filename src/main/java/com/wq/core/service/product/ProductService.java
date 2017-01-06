@@ -1,6 +1,7 @@
 package com.wq.core.service.product;
 
 import com.wq.common.page.Pagination;
+import com.wq.core.bean.product.Product;
 import com.wq.core.query.product.ProductQuery;
 
 /**
@@ -10,4 +11,9 @@ import com.wq.core.query.product.ProductQuery;
 public interface ProductService {
 
     public Pagination getProductListWithPage(ProductQuery productQuery);
+
+    public Integer addProduct(Product product);
+
+    public Product getProductById(Integer id);
+
 }

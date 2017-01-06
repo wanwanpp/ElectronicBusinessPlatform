@@ -24,4 +24,12 @@ public class ColorServiceImpl implements ColorService {
     public List<Color> getColorList(ColorQuery colorQuery) {
         return colorDao.getColorList(colorQuery);
     }
+
+    public Color getColorById(Integer id) {
+        return colorDao.getColorById(id);
+    }
+
+    public List<Color> getColorByIds(List<Integer> ids) {
+        return colorDao.getColorByIds(ids);
+    }
 }

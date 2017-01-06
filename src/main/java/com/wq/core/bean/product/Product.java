@@ -41,5 +41,6 @@ public class Product implements Serializable {
     private String size;//S,L,XXL
 
     //添加外部对象
+    //此处添加一个Img对象是为了给Img添加productId，在ProductServiceImpl中
     private Img img;
 }

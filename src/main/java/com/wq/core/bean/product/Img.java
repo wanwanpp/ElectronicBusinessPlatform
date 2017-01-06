@@ -18,7 +18,7 @@ public class Img implements Serializable {
     private Integer id;
     private Integer productId;
     private String url;
-    private Short isDef;
+    private Integer isDef;
 
     public String getAllUrl() {
         return Constants.IMAGE_URL + url;

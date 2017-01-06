@@ -18,5 +18,5 @@ public class Feature implements Serializable {
     private String name;
     private String value;
     private Integer sort;
-    private Integer idDel;
+    private Integer isDel;
 }

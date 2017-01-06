@@ -1,10 +1,7 @@
-package com.wq.core.controller;
+package com.wq.core.controller.back;
 
 import com.wq.common.page.Pagination;
-import com.wq.core.bean.product.Brand;
-import com.wq.core.bean.product.Color;
-import com.wq.core.bean.product.Feature;
-import com.wq.core.bean.product.Type;
+import com.wq.core.bean.product.*;
 import com.wq.core.query.product.*;
 import com.wq.core.service.product.*;
 import com.wq.core.web.Constants;
@@ -120,7 +117,7 @@ public class ProductController {
         model.addAttribute("brands",brands);
 
         FeatureQuery featureQuery = new FeatureQuery();
-        featureQuery.setIdDel(Constants.YES);
+        featureQuery.setIsDel(Constants.YES);
         featureQuery.setFields("id,name");
         List<Feature> features = featureService.getFeatureList(featureQuery);
         model.addAttribute("features",features);
@@ -130,7 +127,13 @@ public class ProductController {
         List<Color> colors = colorService.getColorList(colorQuery);
         model.addAttribute("colors",colors);
 
-
         return "product/add";
+    }
+
+    @RequestMapping("/add.do")
+    public String add(Product product,Img img){
+        product.setImg(img);
+        productService.addProduct(product);
+        return "redirect:/product/list.do";
     }
 }

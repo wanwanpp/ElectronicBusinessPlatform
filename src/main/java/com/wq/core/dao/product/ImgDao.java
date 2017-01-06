@@ -11,4 +11,7 @@ import java.util.List;
 public interface ImgDao {
 
     public List<Img> getImgList(ImgQuery imgQuery);
+
+    public Integer addImg(Img img);
+
 }

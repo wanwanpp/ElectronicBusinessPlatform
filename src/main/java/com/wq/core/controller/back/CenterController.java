@@ -1,4 +1,4 @@
-package com.wq.core.controller;
+package com.wq.core.controller.back;
 
 import com.wq.core.bean.TestTb;
 import org.springframework.stereotype.Controller;

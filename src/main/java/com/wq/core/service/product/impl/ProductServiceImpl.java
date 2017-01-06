@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +32,8 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ImgDao imgDao;
 
+
+    @Transactional(readOnly = true)
     public Pagination getProductListWithPage(ProductQuery productQuery) {
         //获取满足条件的商品总数
         int count = productDao.getProductListCount(productQuery);
@@ -50,5 +55,26 @@ public class ProductServiceImpl implements ProductService {
         p.setList(products);
 
         return p;
+    }
+
+    public Integer addProduct(Product product) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        String no = dateFormat.format(new Date());
+        product.setNo(no);
+        product.setCreateTime(new Date(System.currentTimeMillis()));
+        Integer i = productDao.addProduct(product);
+
+        Img img = product.getImg();
+        img.setProductId(product.getId());
+        img.setIsDef(Constants.YES);
+        imgDao.addImg(img);
+
+
+        return i;
+    }
+
+    @Transactional(readOnly = true)
+    public Product getProductById(Integer id) {
+        return productDao.getProductById(id);
     }
 }

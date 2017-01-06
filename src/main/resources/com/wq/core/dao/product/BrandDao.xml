@@ -64,7 +64,7 @@
         # order by id DESC
     </select>
 
-    <insert id="addBrand" parameterType="Brand">
+    <insert id="addBrand" parameterType="Brand" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO bbs_brand
         <trim prefix="(" suffix=")">
             id,name,description,img_url,web_site,sort,is_display

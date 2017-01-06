@@ -8,7 +8,7 @@
         <result property="name" column="name"/>
         <result property="value" column="value"/>
         <result property="sort" column="sort"/>
-        <result property="idDel" column="id_del"/>
+        <result property="isDel" column="is_del"/>
     </resultMap>
 
     <sql id="featureListWhere">
@@ -19,14 +19,14 @@
             <if test="name!=null">
                 and name=#{name}
             </if>
-            <if test="parentId!=null">
+            <if test="value!=null">
                 and value=#{value}
             </if>
-            <if test="note!=null">
+            <if test="sort!=null">
                 and sort=#{sort}
             </if>
-            <if test="isDisplay!=null">
-                and id_del=#{idDel}
+            <if test="isDel!=null">
+                and is_del=#{isDel}
             </if>
         </where>
     </sql>

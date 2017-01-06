@@ -1,4 +1,4 @@
-package com.wq.core.controller;
+package com.wq.core.controller.back;
 
 import com.wq.core.bean.product.Brand;
 import com.wq.core.query.product.BrandQuery;

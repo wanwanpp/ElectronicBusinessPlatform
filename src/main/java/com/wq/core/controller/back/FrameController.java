@@ -1,4 +1,4 @@
-package com.wq.core.controller;
+package com.wq.core.controller.back;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
