@@ -1,4 +1,4 @@
-package com.wq.core.web;
+package com.wq.common.web;
 
 /**
  * 业务常量
@@ -22,4 +22,6 @@ public interface Constants {
 
     public static final Integer YES = 1;
     public static final Integer NO = 0;
+
+    public static final String SESSION_ID="JSESSIONID";
 }

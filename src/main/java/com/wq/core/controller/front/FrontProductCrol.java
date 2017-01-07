@@ -4,7 +4,7 @@ import com.wq.common.page.Pagination;
 import com.wq.core.bean.product.*;
 import com.wq.core.query.product.*;
 import com.wq.core.service.product.*;
-import com.wq.core.web.Constants;
+import com.wq.common.web.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

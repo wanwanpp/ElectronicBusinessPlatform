@@ -5,7 +5,7 @@ import com.wq.core.bean.product.*;
 import com.wq.core.query.product.*;
 import com.wq.core.service.product.*;
 import com.wq.core.service.staticpage.StaticPageService;
-import com.wq.core.web.Constants;
+import com.wq.common.web.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

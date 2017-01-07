@@ -3,7 +3,7 @@ package com.wq.core.controller.back;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.wq.common.util.ResponseUtils;
-import com.wq.core.web.Constants;
+import com.wq.common.web.Constants;
 import org.apache.commons.io.FilenameUtils;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;

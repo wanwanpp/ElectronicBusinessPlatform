@@ -3,7 +3,7 @@ package com.wq.core.controller.back;
 import com.wq.core.bean.product.Brand;
 import com.wq.core.query.product.BrandQuery;
 import com.wq.core.service.product.BrandService;
-import com.wq.core.web.Constants;
+import com.wq.common.web.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

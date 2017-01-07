@@ -65,4 +65,15 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
+    <!--配置验证码-->
+    <servlet>
+        <servlet-name>jcaptcha</servlet-name>
+        <servlet-class>com.wq.common.captcha.JcaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jcaptcha</servlet-name>
+        <url-pattern>/captcha.svl</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

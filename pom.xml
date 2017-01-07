@@ -236,17 +236,17 @@
       <version>2.4.2</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.danga</groupId>
-      <artifactId>memcached</artifactId>
-      <version>2.0.1</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.danga</groupId>-->
+      <!--<artifactId>memcached</artifactId>-->
+      <!--<version>2.0.1</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>memcached-util</groupId>
-      <artifactId>memcached</artifactId>
-      <version>1.1</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>memcached-util</groupId>-->
+      <!--<artifactId>memcached</artifactId>-->
+      <!--<version>1.1</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>cglib</groupId>
@@ -266,11 +266,11 @@
       <version>20131018</version>
     </dependency>
 
-    <dependency>
-      <groupId>oscache</groupId>
-      <artifactId>oscache</artifactId>
-      <version>2.4.1</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>oscache</groupId>-->
+      <!--<artifactId>oscache</artifactId>-->
+      <!--<version>2.4.1</version>-->
+    <!--</dependency>-->
     <!--jerson -->
     <dependency>
       <groupId>com.sun.jersey</groupId>
@@ -280,14 +280,15 @@
     <!--jcaptcha -->
     <dependency>
       <groupId>com.octo.captcha</groupId>
-      <artifactId>jcaptcha-my</artifactId>
+      <artifactId>jcaptcha</artifactId>
       <version>1.0</version>
     </dependency>
+
     <!--page -->
-    <dependency>
-      <groupId>cn.itcast</groupId>
-      <artifactId>page</artifactId>
-      <version>1.0</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>cn.itcast</groupId>-->
+      <!--<artifactId>page</artifactId>-->
+      <!--<version>1.0</version>-->
+    <!--</dependency>-->
   </dependencies>
 </project>

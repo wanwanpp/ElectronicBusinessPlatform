@@ -8,7 +8,7 @@ import com.wq.core.dao.product.ProductDao;
 import com.wq.core.query.product.ImgQuery;
 import com.wq.core.query.product.ProductQuery;
 import com.wq.core.service.product.ProductService;
-import com.wq.core.web.Constants;
+import com.wq.common.web.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

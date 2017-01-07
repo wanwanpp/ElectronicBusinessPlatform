@@ -1,6 +1,6 @@
 package com.wq.core.bean.product;
 
-import com.wq.core.web.Constants;
+import com.wq.common.web.Constants;
 import lombok.Getter;
 import lombok.Setter;
 
