@@ -21,8 +21,22 @@
             f.action = "list.do";
             f.submit();
         }
-        function changePageNo() {
-            $("input[name='pageNo']").val(1);
+
+        //上架
+        function isShow(pageNo, name, brandId, isShow) {
+            if (Pn.checkedCount('ids') <= 0) {
+                alert("请至少选择一个!");
+                return;
+            }
+            if (!confirm("确定上架吗?")) {
+                return;
+            }
+//            var ids = [];
+//            ids = $("input[name='ids']").val();
+//            alert(ids);
+
+            $("#jvForm").attr("action", "/product/show.do?pageNo=" + pageNo + "&name=" + name + "&brandId=" + brandId + "&isShow=" + isShow);
+            $("#jvForm").submit();
         }
     </script>
 </head>
@@ -36,22 +50,20 @@
 </div>
 <div class="body-box">
     <form action="/product/list.do" method="post" style="padding-top:5px;">
-        <input type="hidden" value="1" name="pageNo"/>
-        名称: <input type="text" onkeyup="changePageNo()" value="" name="name"/>
-        <select onchange="changePageNo()" name="brandId">
+        名称: <input type="text" value="${name}" name="name"/>
+        <select name="brandId">
             <c:forEach items="${brands}" var="brand">
-                <option value="${brand.id}" <c:if test="${brand.id==brandId}">selected="selected"</c:if>>${brand.name}</option>
+                <option value="${brand.id}"
+                        <c:if test="${brand.id==brandId}">selected="selected"</c:if>>${brand.name}</option>
             </c:forEach>
         </select>
-        <select onchange="changePageNo()" name="isShow">
+        <select name="isShow">
             <option value="1" <c:if test="${isShow==1}">selected="selected"</c:if>>上架</option>
             <option value="0" <c:if test="${isShow==0}">selected="selected"</c:if>>下架</option>
         </select>
         <input type="submit" class="query" value="查询"/>
     </form>
-    <form method="post" id="tableForm">
-        <input type="hidden" value="" name="pageNo"/>
-        <input type="hidden" value="" name="queryName"/>
+    <form method="post" id="jvForm">
         <table cellspacing="1" cellpadding="0" width="100%" border="0" class="pn-ltable">
             <thead class="pn-lthead">
             <tr>
@@ -113,7 +125,8 @@
 
         <div style="margin-top:15px;">
             <input class="del-button" type="button" value="删除" onclick="optDelete();"/>
-            <input class="add" type="button" value="上架" onclick="optDelete();"/>
+            <input class="add" type="button" value="上架"
+                   onclick="isShow('${pagination.pageNo}','${name }','${brandId }','${isShow }');"/>
             <input class="del-button" type="button" value="下架" onclick="optDelete();"/>
         </div>
     </form>

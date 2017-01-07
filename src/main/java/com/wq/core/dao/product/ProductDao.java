@@ -10,11 +10,13 @@ import java.util.List;
  */
 public interface ProductDao {
     public Integer getProductListCount(ProductQuery productQuery);
-
     public List<Product> getProductListWithPage(ProductQuery productQuery);
 
     public Integer addProduct(Product product);
 
     public Product getProductById(Integer id);
+
+    Integer updateProductById(Product product);
+
 
 }

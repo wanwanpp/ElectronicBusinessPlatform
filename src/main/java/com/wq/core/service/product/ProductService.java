@@ -16,4 +16,5 @@ public interface ProductService {
 
     public Product getProductById(Integer id);
 
+    Integer updateProductById(Product product);
 }

@@ -27,9 +27,9 @@ public class StaticPageServiceImpl implements StaticPageService, ServletContextA
 
     public void productIndex(Map<String,Object> data,Integer id) {
         //设置模板的文件夹路径
-        //获取模板  /WEB-INF/ftl/prodcutDetail.html
+        //获取模板  /WEB-INF/ftl/prodcutDetail.ftl
         //输出路径  webapp/html/ + prouduct/ + id + ".html"
-        String tpl = "productDetail.html";
+        String tpl = "productDetail.ftl";//相对路径定义在freemarker.xml配置中的
         String outPath = get("/html/product/" + id + ".html");
 
         File f = new File(outPath);

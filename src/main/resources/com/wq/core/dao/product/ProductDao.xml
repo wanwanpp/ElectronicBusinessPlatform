@@ -352,6 +352,81 @@
         </trim>
     </insert>
 
+    <update id="updateProductById" parameterType="Product">
+        UPDATE bbs_product
+        <set>
+            <trim suffixOverrides=",">
+                <if test="id != null">
+                    id = #{id},
+                </if>
+                <if test="no != null">
+                    no = #{no},
+                </if>
+                <if test="name != null">
+                    name = #{name},
+                </if>
+                <if test="weight != null">
+                    weight = #{weight},
+                </if>
+                <if test="isNew != null">
+                    is_new = #{isNew},
+                </if>
+                <if test="isHot != null">
+                    is_hot = #{isHot},
+                </if>
+                <if test="isCommend != null">
+                    is_commend = #{isCommend},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime},
+                </if>
+                <if test="createUserId != null">
+                    create_user_id = #{createUserId},
+                </if>
+                <if test="checkTime != null">
+                    check_time = #{checkTime},
+                </if>
+                <if test="checkUserId != null">
+                    check_user_id = #{checkUserId},
+                </if>
+                <if test="isShow != null">
+                    is_show = #{isShow},
+                </if>
+                <if test="isDel != null">
+                    is_del = #{isDel},
+                </if>
+                <if test="typeId != null">
+                    type_id = #{typeId},
+                </if>
+                <if test="brandId != null">
+                    brand_id = #{brandId},
+                </if>
+                <if test="keywords != null">
+                    keywords = #{keywords},
+                </if>
+                <if test="sales != null">
+                    sales = #{sales},
+                </if>
+                <if test="description != null">
+                    description = #{description},
+                </if>
+                <if test="packageList != null">
+                    package_list = #{packageList},
+                </if>
+                <if test="feature != null">
+                    feature = #{feature},
+                </if>
+                <if test="color != null">
+                    color = #{color},
+                </if>
+                <if test="size != null">
+                    size = #{size}
+                </if>
+            </trim>
+        </set>
+        <where>id=#{id}</where>
+    </update>
+
 </mapper>
 
 
