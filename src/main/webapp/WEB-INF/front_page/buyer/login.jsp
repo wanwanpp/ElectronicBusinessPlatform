@@ -36,8 +36,9 @@
     </div>
     <div class="r">
         <h2 title="登录新巴巴运动网">登录新巴巴运动网</h2>
-        <form id="jvForm" action="../buyer/index.jsp" method="post">
-            <input type="hidden" name="returnUrl" value="${param.directUrl}"/>
+        <form id="jvForm" action="/shopping/login.shtml" method="post">
+            <%--注意此处写的param.returnUrl,param应该对应的是FrontInterceptor中response.sendRedirect("/shopping/login.shtml?"+RETURNURL+"="+requestURI);--%>
+            <input type="hidden" name="returnUrl" value="${param.returnUrl}"/>
             <ul class="uls form">
                 <li id="errorName" class="errorTip"
                     <c:if test="${empty error}">style="display:none"</c:if>>${error}</li>

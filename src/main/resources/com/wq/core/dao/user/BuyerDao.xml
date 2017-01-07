@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wq.core.dao.user.BuyerDao">
+
+    <sql id="buyerSelector">
+        SELECT
+        <if test="fields != null">
+            ${fields}
+        </if>
+        <if test="fields == null">
+            username,password,gender,email,real_name,register_time,province,city,town,addr,is_del
+        </if>
+        FROM bbs_buyer
+    </sql>
+    <sql id="buyerListWhere">
+        <where>
+            <if test="username != null">
+                <if test="usernameLike == false">
+                    and username=#{username}
+                </if>
+                <if test="usernameLike == true">
+                    and username like "%"#{username}"%"
+                </if>
+            </if>
+            <if test="password != null">
+                <if test="passwordLike == false">
+                    and password=#{password}
+                </if>
+                <if test="passwordLike == true">
+                    and password like "%"#{password}"%"
+                </if>
+            </if>
+            <if test="gender != null">
+                <if test="genderLike == false">
+                    and gender=#{gender}
+                </if>
+                <if test="genderLike == true">
+                    and gender like "%"#{gender}"%"
+                </if>
+            </if>
+            <if test="email != null">
+                <if test="emailLike == false">
+                    and email=#{email}
+                </if>
+                <if test="emailLike == true">
+                    and email like "%"#{email}"%"
+                </if>
+            </if>
+            <if test="realName != null">
+                <if test="realNameLike == false">
+                    and real_name=#{realName}
+                </if>
+                <if test="realNameLike == true">
+                    and real_name like "%"#{realName}"%"
+                </if>
+            </if>
+            <if test="registerTime != null">
+                and register_time=#{registerTime}
+            </if>
+            <if test="provinceId != null">
+                and province=#{province}
+            </if>
+            <if test="cityId != null">
+                and city=#{city}
+            </if>
+            <if test="townId != null">
+                and town=#{town}
+            </if>
+            <if test="addr != null">
+                <if test="addrLike == false">
+                    and addr=#{addr}
+                </if>
+                <if test="addrLike == true">
+                    and addr like "%"#{addr}"%"
+                </if>
+            </if>
+            <if test="isDel != null">
+                and is_del=#{isDel}
+            </if>
+        </where>
+    </sql>
+
+    <sql id="buyerListOrder">
+        <if test="orderFields != null and orderFields.size >0">
+            order by
+            <foreach collection="orderFields" separator="," item="orderField">
+                ${orderField.fieldName} ${orderField.order}
+            </foreach>
+        </if>
+    </sql>
+
+    <sql id="buyerListLimit">
+        <if test="startRow != null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </sql>
+
+    <select id="getBuyerByUsername" parameterType="hashMap" resultType="Buyer">
+        SELECT
+            username,
+            password,
+            gender,
+            email,
+            real_name,
+            register_time,
+            province,
+            city,
+            town,
+            addr,
+            is_del
+        FROM bbs_buyer
+        WHERE username = #{username}
+    </select>
+
+    <select id="getBuyersByUsernames" parameterType="ArrayList" resultType="Buyer">
+        SELECT username,
+        password,
+        gender,
+        email,
+        real_name,
+        register_time,
+        province,
+        city,
+        town,
+        addr,
+        is_del FROM bbs_buyer
+        WHERE username IN
+        <foreach collection="list" open="(" close=")" separator="," item="username">
+            #{username}
+        </foreach>
+    </select>
+
+</mapper>
