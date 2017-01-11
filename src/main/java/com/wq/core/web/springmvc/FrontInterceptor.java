@@ -22,7 +22,7 @@ public class FrontInterceptor implements HandlerInterceptor {
 
     public static final String RETURNURL="returnUrl";
 
-    private Integer adminId;
+    private Integer adminId=1;
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         if (null!=adminId){
@@ -50,7 +50,7 @@ public class FrontInterceptor implements HandlerInterceptor {
                 }
             }
         }
-        return false;
+        return true;
     }
 
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {

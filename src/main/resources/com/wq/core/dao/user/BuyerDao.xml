@@ -130,4 +130,46 @@
         </foreach>
     </select>
 
+    <update id="updateBuyer" parameterType="Buyer">
+        UPDATE bbs_buyer
+        <set>
+            <trim suffixOverrides=",">
+                <if test="username!=null">
+                    username=#{username},
+                </if>
+                <if test="password!=null">
+                    password=#{password},
+                </if>
+                <if test="gender!=null">
+                    gender=#{gender},
+                </if>
+                <if test="email != null">
+                    email = #{email},
+                </if>
+                <if test="realName != null">
+                    real_name = #{realName},
+                </if>
+                <if test="registerTime != null">
+                    register_time = #{registerTime},
+                </if>
+                <if test="province != null">
+                    province = #{province},
+                </if>
+                <if test="city != null">
+                    city = #{city},
+                </if>
+                <if test="town != null">
+                    town = #{town},
+                </if>
+                <if test="addr != null">
+                    addr = #{addr},
+                </if>
+                <if test="isDel != null">
+                    is_del = #{isDel}
+                </if>
+            </trim>
+        </set>
+        <where>username=#{username}</where>
+    </update>
+
 </mapper>

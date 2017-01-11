@@ -8,4 +8,7 @@ import com.wq.core.bean.user.Buyer;
 public interface BuyerDao {
 
     public Buyer getBuyerByUsername(String username);
+
+    public void updateBuyer(Buyer buyer);
+
 }

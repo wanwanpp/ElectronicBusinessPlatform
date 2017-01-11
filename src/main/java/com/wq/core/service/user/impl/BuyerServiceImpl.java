@@ -22,4 +22,8 @@ public class BuyerServiceImpl implements BuyerService {
     public Buyer getBuyerByUsername(String username) {
         return buyerDao.getBuyerByUsername(username);
     }
+
+    public void updateBuyer(Buyer buyer) {
+        buyerDao.updateBuyer(buyer);
+    }
 }

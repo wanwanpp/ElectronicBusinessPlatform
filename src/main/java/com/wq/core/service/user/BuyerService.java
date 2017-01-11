@@ -8,4 +8,6 @@ import com.wq.core.bean.user.Buyer;
 public interface BuyerService {
 
     public Buyer getBuyerByUsername(String username);
+
+    public void updateBuyer(Buyer buyer);
 }
